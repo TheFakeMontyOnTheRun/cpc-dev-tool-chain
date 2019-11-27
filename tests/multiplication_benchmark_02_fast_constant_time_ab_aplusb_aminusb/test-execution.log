@@ -1,0 +1,43 @@
+make[1] : on entre dans le répertoire « /org/gourichon/localdata/SG/projects/retrocomputing/code/cpc-dev-tool-chain/tests/multiplication_benchmark_02_fast_constant_time_ab_aplusb_aminusb »
+######################################################################## 
+Some variables about the project 
+######################################################################## 
+AUNAME = fastmult.au
+BINAMSDOSS = fastmult.binamsdos
+BINS = fastmult.bin
+CDTC_ENV_FOR_2CDT = ../..//tool/2cdt/build_config.inc
+CDTC_ENV_FOR_CAPRICE32 = ../..//tool/caprice32/build_config.inc
+CDTC_ENV_FOR_CFWI = ../..//cpclib/cfwi/cfwi.lib
+CDTC_ENV_FOR_CPCRSLIB = ../..//cpclib/cpcrslib/cpcrslib_SDCC.installtree/.installed
+CDTC_ENV_FOR_CPCXFS = ../..//tool/cpcxfs/build_config.inc
+CDTC_ENV_FOR_CPC_PUTCHAR = ../..//cpclib/cdtc_stdio/cdtc_stdio.lib ../..//cpclib/cdtc_stdio/putchar_cpc.rel
+CDTC_ENV_FOR_HEX2BIN = ../..//tool/hex2bin/build_config.inc
+CDTC_ENV_FOR_IDSK = ../..//tool/idsk/build_config.inc
+CDTC_ENV_FOR_PLAYTZX = ../..//tool/playtzx/build_config.inc
+CDTC_ENV_FOR_SDCC = ../..//tool/sdcc/build_config.inc
+CDTNAME = fastmult.cdt
+CODELOC = 0x4000
+DSKNAME = fastmult.dsk
+GENHRDS = printer.h testbench.h testfixture.h
+HDRS = printer.h
+IHXS = fastmult.ihx
+LDFLAGS = 
+RELS = printer.rel testbench.rel testfixture.rel crt0.rel
+SDCC = time sdcc
+SRCS = printer.c testbench.c testfixture.c
+SRSS = crt0.s
+TARGETS = fastmult.dsk fastmult.bin 
+TOOLS = git:git wget:wget make:make patch:patch gcc:gcc bzip2:bzip2 unzip:unzip g++:g++ makeinfo:texinfo bison:bison flex:flex /usr/include/boost/version.hpp:libboost-all-dev sdl-config:libsdl1.2-dev pkgconf:pkgconf freetype-config:libfreetype6-dev ncurses5-config:libncurses-dev
+VOCNAME = fastmult.voc
+( . ../..//tool/caprice32/build_config.inc ; rm -rf output ; mkdir output ; cap32 fastmult.dsk -c cap32_fortest.cfg -a 'run"fastmult' -a CAP32_WAITBREAKCAP32_SCRNSHOTCAP32_EXIT ; rename 's|output/screenshot.*.png$|output/screenshot.png|' output/screenshot*.png ; )
+Using configuration file: cap32_fortest.cfg
+No joystick found.
+joysticks_init() failed. Joysticks won't work.
+INFO    src/cap32.cpp:2283 - Rearming EC_BREAKPOINT.
+INFO    src/cap32.cpp:2067 - Will skip 1 before processing more virtual events.
+INFO    src/cap32.cpp:2279 - Decremented breakpoint skip counter to 0
+INFO    src/cap32.cpp:2283 - Rearming EC_BREAKPOINT.
+( if diff -ur model output ; then echo PASS ; else echo FAIL ; fi | tee test_verdict.txt.tmp && mv -vf test_verdict.txt.tmp test_verdict.txt ; exit 0 )
+PASS
+renamed 'test_verdict.txt.tmp' -> 'test_verdict.txt'
+make[1] : on quitte le répertoire « /org/gourichon/localdata/SG/projects/retrocomputing/code/cpc-dev-tool-chain/tests/multiplication_benchmark_02_fast_constant_time_ab_aplusb_aminusb »
